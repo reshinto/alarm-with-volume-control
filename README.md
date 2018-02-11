@@ -6,12 +6,7 @@ Users will be able to select which days of the week to activate the alarm.
 Once the alarm time has been set, program will loop weekly.
 You can use can music file as alarm. (tested with .mp3)
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
-See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
+# Prerequisites
 
 What things you need to install the software and how to install them
 
@@ -25,7 +20,7 @@ pip install pydub
 pip install comtypes
 ```
 
-### Installing
+## Installing
 
 ```
 If you are using conda, on terminal, cd to the directory you saved the file.
@@ -39,8 +34,7 @@ Or
 Pip install everything if you do not want to use Anaconda
 ```
 
-
-## Tested on Windows 10
+### Tested on Windows 10
 
 On windows terminal, cd to saved directory then do the following:
 1) Type: python main.py
