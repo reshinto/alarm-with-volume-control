@@ -67,8 +67,8 @@ def alarm_app():
         off_mute()
     current_vol = get_volume()
     set_volume("60")
-    ringtone = "/Volumes/Speed/Dev/Python_projects/My_Projects/Alarm_clock/"\
-               "my_alarm/osx/sample.mp3"
+    ringtone = "/Volumes/Speed/Dev/Python_projects/My_Projects/"\
+               "alarm-volume-control/audio/sample.mp3"
     play_alarm(ringtone, current_vol)
     if mute_status == "true":
         on_mute()
