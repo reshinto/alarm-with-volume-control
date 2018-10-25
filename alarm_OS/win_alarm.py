@@ -1,9 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# Required to view, control, and schedule time & date weekly
 import time
-import schedule
 
 # Required to set Master volume (Tested on Windows 10)
 from ctypes import cast, POINTER
@@ -14,8 +12,6 @@ from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from pydub import AudioSegment
 from pydub.playback import play
 
-# Required to do combination of choices
-from itertools import combinations
 
 def mastervol():
     """
@@ -26,7 +22,8 @@ def mastervol():
     IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
     volume = cast(interface, POINTER(IAudioEndpointVolume))
     return volume
-	
+
+
 def set_mastervol(db):
     """
     Set & override current PC Master volume and mute status. (tested on windows 10)
@@ -35,7 +32,8 @@ def set_mastervol(db):
     mastervol().SetMute(0, None)
     # Set PC volume from min vol -75 to max vol 0
     mastervol().SetMasterVolumeLevel(db, None)	
-	
+
+
 def initialmute():
     """
     Get initial mute status. 
@@ -45,6 +43,7 @@ def initialmute():
     initial_mute = mastervol().GetMute()
     return initial_mute
 
+
 def initialvol():
     """
     Get initial PC Master volume. 
@@ -52,6 +51,7 @@ def initialvol():
     """
     inital_volume = mastervol().GetMasterVolumeLevel()
     return inital_volume
+
 
 def playalarm():
     """
@@ -67,7 +67,8 @@ def playalarm():
     play_alarm = alarm + volume
     # Play alarm file
     play(play_alarm)
-	
+
+
 def time_input():
     """
     Allow user to set PC Master volume when alarm is activated.
@@ -91,11 +92,13 @@ def time_input():
     else:
         dba = x / 100 * 75 - 75
 
-def job():
+
+def win_app():
     """
     This is where the Volume is controlled, mute is deactivated, and alarm is played.
     Allows for snoozing via keyboard interrupt.
     """
+    time_input()
     while True:
         try:
             global dba, dbb, dbc
@@ -115,14 +118,3 @@ def job():
             mastervol().SetMute(dbc, None)
             print("\n Snoozed\n")
             break
-		
-def run_schedule(choices):
-    """
-    Activate alarm schedules based on selected choices and will run in a loop.
-    """
-    choices
-    print("\n Alarm has been activated. \n")
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
