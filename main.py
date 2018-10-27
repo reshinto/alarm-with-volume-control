@@ -66,7 +66,7 @@ def _menu9(os_app):
         print("\n\tNo settings available\n")
         menu(os_app)
     else:
-        with open("settings/settings.txt", "r") as f:
+        with open("settings.txt", "r") as f:
             data = f.read().split("\n")
             if data[0] != "None":
                 date_choice = [int(i) for i in data[0]]
@@ -241,7 +241,7 @@ Select setting options
 
 def _initial_write(_dates="None", _time="None",
                    _ringtone="None", _volume="None"):
-    with open("settings/settings.txt", "w") as ftxt:
+    with open("settings.txt", "w") as ftxt:
         ftxt.write(_dates + "\n")
         ftxt.write(_time + "\n")
         ftxt.write(_ringtone + "\n")
@@ -249,7 +249,7 @@ def _initial_write(_dates="None", _time="None",
 
 
 def _overwrite(line_num, _data):
-    with open("settings/settings.txt", "r+") as f:
+    with open("settings.txt", "r+") as f:
         new_data = f.read().split("\n")
         new_data[line_num] = _data
         f.seek(0)
@@ -317,7 +317,7 @@ def _view_settings():
 
 
 def _read(line_num):
-    with open("settings/settings.txt", "r") as f:
+    with open("settings.txt", "r") as f:
         lines = f.readlines()
         f.seek(0)
         for i, line in enumerate(lines):
@@ -347,6 +347,6 @@ def _read_volume():
 
 def file_is_empty():
     """Check text file if it is empty"""
-    if os.stat("settings/settings.txt").st_size == 0:
+    if os.stat("settings.txt").st_size == 0:
         return True
     return False
