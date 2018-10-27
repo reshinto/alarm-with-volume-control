@@ -3,27 +3,9 @@ Run alarm application
 Tested on windows 10 and
 mac high sierra and Mojave
 """
-import platform
 import datetime
 import time
 import os
-
-
-def main():
-    """Check OS and run the support app accordingly"""
-    if check_os() == "Darwin":
-        from alarm_OS.mac_alarm import mac_app
-        menu(mac_app)
-    elif check_os() == "Windows":
-        from alarm_OS.win_alarm import win_app
-        menu(win_app)
-    else:
-        print("OS not supported")
-
-
-def check_os():
-    """Check OS of current computer"""
-    return platform.system()
 
 
 def menu(os_app=None):
@@ -107,7 +89,7 @@ def _menu9(os_app):
 
 
 def _menu0(os_app):
-    settings()
+    settings(os_app)
 
 
 def get_dates(choice=None):
@@ -228,7 +210,7 @@ def current_time():
     return str(datetime.datetime.today())[-15:-10]
 
 
-def settings():
+def settings(os_app=None):
     """Settings menu"""
     choice = input("""\
 Select setting options
@@ -245,13 +227,16 @@ Select setting options
         "3": _set_ringtone,
         "4": _set_volume,
         "5": _view_settings,
-        "0": main,
+        "0": menu,
     }
     if choice_dict.get(choice) is None:
         print("\n\tInvalid input")
         settings()
     else:
-        choice_dict[choice]()
+        if choice == "0":
+            choice_dict[choice](os_app)
+        else:
+            choice_dict[choice]()
 
 
 def _initial_write(_dates="None", _time="None",
@@ -365,7 +350,3 @@ def file_is_empty():
     if os.stat("settings/settings.txt").st_size == 0:
         return True
     return False
-
-
-if __name__ == "__main__":
-    main()
