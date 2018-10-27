@@ -19,14 +19,15 @@ class Adapter:
 
     def osx(Self):
         from alarm_OS.mac_alarm import mac_app
-        menu(mac_app)        
+        menu(mac_app)
 
     def windows10(self):
         from alarm_OS.win_alarm import win_app
         menu(win_app)
 
     def linux(self):
-        linux_type = subprocess.check_output(["lsb_release", "-is"]).decode("utf-8")[:-1]
+        linux_type = subprocess.check_output(["lsb_release",
+                                              "-is"]).decode("utf-8")[:-1]
         linux_dict = {
             "Ubuntu": self.ubuntu,
             "Kali": self.kali
@@ -36,7 +37,8 @@ class Adapter:
         linux_dict[linux_type]()
 
     def ubuntu(self):
-        print("ubuntu")
+        from alarm_OS.ubuntu_alarm import ubuntu_app
+        menu(ubuntu_app)
 
     def kali(self):
         print("kali")
