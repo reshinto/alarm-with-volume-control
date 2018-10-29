@@ -9,7 +9,7 @@ You can use can music file as alarm. (tested with .mp3)
 # Prerequisites
 
 What things you need to install the software and how to install them (Windows 10 only).
-Ubuntu and Mac OSX requires no installation.
+Ubuntu and Mac OSX requires no installation (should support any python 3 versions).
 
 ```
 Python 3.5
