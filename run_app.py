@@ -1,9 +1,15 @@
+"""Check OS and run app"""
+
 import platform
 import subprocess
-from main import menu
+from main import AlarmMenu
 
 
 class Adapter:
+    """
+    Find the current OS distribution and provide the alarm app menu with the
+    required OS command app for the alarm app to work
+    """
     def __init__(self):
         self._check_os = platform.system()
         self.os_dict = {
@@ -13,19 +19,25 @@ class Adapter:
         }
 
     def run_app(self):
+        """Check current OS distribution"""
         if self.os_dict.get(self._check_os) is None:
             return "OS not supported"
         self.os_dict[self._check_os]()
 
     def osx(Self):
+        """Run Mac OSX commands (High Seirra and Mojave)"""
         from alarm_OS.mac_alarm import mac_app
-        menu(mac_app)
+        run = AlarmMenu(mac_app)
+        run.menu()
 
     def windows10(self):
+        """Run Windows 10 commands (currently not working)"""
         from alarm_OS.win_alarm import win_app
-        menu(win_app)
+        run = AlarmMenu(win_app)
+        run.menu()
 
     def linux(self):
+        """Check linux distribution"""
         linux_type = subprocess.check_output(["lsb_release",
                                               "-is"]).decode("utf-8")[:-1]
         linux_dict = {
@@ -37,10 +49,13 @@ class Adapter:
         linux_dict[linux_type]()
 
     def ubuntu(self):
+        """Run Ubuntu 18.04 commands"""
         from alarm_OS.ubuntu_alarm import ubuntu_app
-        menu(ubuntu_app)
+        run = AlarmMenu(ubuntu_app)
+        run.menu()
 
     def kali(self):
+        """To be implemented soon"""
         print("kali")
 
 

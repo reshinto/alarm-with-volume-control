@@ -14,7 +14,6 @@ What things you need to install the software and how to install them
 Python 3.5
 
 Use pip install for the following:
-pip install schedule
 pip install pycaw
 pip install pydub
 pip install comtypes
