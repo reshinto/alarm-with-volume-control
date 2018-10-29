@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Alarm app on Linux
 Tested on Ubuntu 18.04

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Alarm navigation menu
 Tested on windows 10 (Not working at the moment)

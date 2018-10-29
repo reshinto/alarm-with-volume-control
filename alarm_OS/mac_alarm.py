@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Alarm app on OSX
 Tested on High Seirra and Mojave
