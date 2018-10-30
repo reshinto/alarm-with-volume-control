@@ -58,10 +58,9 @@ def playalarm(filename=None):
     Open and play alarm file
     *Take note: increasing db too high will reduce music quality 
     Input filename with extension, or path including filename with extension
-    Input file path: e.g. "c:\alarm\xxx.mp3" or filename if in the same directory e.g. "xxx.mp3"
     """
     if filename is None:
-        filename = "audio\sample.mp3"
+        filename = "audio/sample.mp3"
     alarm = AudioSegment.from_mp3(filename)
     # Set alarm file volume: increase db >= 0, decrease db <= -1 
     volume = 10
@@ -104,7 +103,7 @@ def win_app(_ringtone=None, _vol=None):
     dbc = initialmute()
     dbb = view_initial_vol()
     if _vol is None:
-        _vol = volume_input()
+        _vol = 60
     while True:
         try:
             # Set values from -75 to 0: increase volume = higher value
