@@ -81,8 +81,7 @@ def ubuntu_app(ringtone=None, vol=None):
     Runs alarm app
     """
     if ringtone is None:
-        ringtone = "/home/springfield/dev/"\
-                   "alarm-volume-control/audio/sample.mp3"
+        ringtone = "audio/sample.mp3"
     if vol is None:
         vol = "60"
     mute_status = check_mute()

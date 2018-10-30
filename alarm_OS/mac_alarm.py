@@ -81,8 +81,7 @@ def mac_app(ringtone=None, vol=None):
     Runs alarm app
     """
     if ringtone is None:
-        ringtone = "/Volumes/Speed/Dev/Python_projects/My_Projects/"\
-                   "alarm-volume-control/audio/sample.mp3"
+        ringtone = "audio/sample.mp3"
     if vol is None:
         vol = "60"
     mute_status = check_mute()
