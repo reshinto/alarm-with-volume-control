@@ -19,10 +19,10 @@ pip install pydub
 pip install comtypes
 ```
 * Ubuntu and Mac, FFMPEG must be installed.
-** Ubuntu:
-> sudo apt install ffmpeg
-** Mac:
-> brew install ffmpeg
+  * Ubuntu:
+  > sudo apt install ffmpeg
+  * Mac:
+  > brew install ffmpeg
 
 ## Installing
 
