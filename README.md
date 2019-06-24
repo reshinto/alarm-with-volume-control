@@ -8,9 +8,8 @@ You can use any music file as an alarm. (tested with .mp3)
 
 # Prerequisites
 
-What you need to install and how to install them (Windows 10 only).
-Ubuntu and Mac OSX requires no installation (should support any python 3 versions).
-
+What you need to install and how to install them
+* Windows 10:
 ```
 Python 3.5
 
@@ -19,6 +18,11 @@ pip install pycaw
 pip install pydub
 pip install comtypes
 ```
+* Ubuntu and Mac, FFMPEG must be installed.
+** Ubuntu:
+> sudo apt install ffmpeg
+** Mac:
+> brew install ffmpeg
 
 ## Installing
 
